@@ -1,0 +1,21 @@
+
+export MY_BRC_HOME=$(realpath $(dirname "$0"))
+
+export MY_WORLD=/truman
+export MY_BIN=$MY_WORLD/bin
+export MY_BLOG=$MY_WORLD/blog
+export MY_DIST=$MY_WORLD/dist
+export MY_PERSONAL=$MY_WORLD/personal
+export MY_SCRIPTS=$MY_WORLD/scriipts
+export MY_TEST=$MY_WORLD/test
+export MY_TEMP=$MY_WORLD/temp
+export MY_TOOLING=$MY_WORLD/tooling
+export MY_TOOLS=$MY_WORLD/tools
+export MY_WORKSPACE=$MY_WORLD/workspace
+
+
+PATH=\
+$MY_WORLD/bin:\
+$PATH
+
+source $MY_BRC_HOME/bashrc.func
