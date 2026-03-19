@@ -35,6 +35,12 @@ RO2=/$U/.2ruman
 mkdir $RO2
 sudo chattr -a $RO2/
 mv ~/dev-env/ $RO2/
-cd $RO2/ && git clone https://github.com/2ruman/linux-programming.git
+cd $RO2/
+if [ -d "linux\-programming" ]; then
+    git clone https://github.com/2ruman/linux-programming.git
+else
+    cd "linux-programming"
+    git pull
+fi
 
 echo "Done"
