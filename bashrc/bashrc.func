@@ -1,6 +1,15 @@
 #!/bin/bash
 
 _brc_log() { echo -e "[\033[0;32mBASHRC\033[0m] ${*}"; }
+_brc_date() { date +%Y%m%d_%H%M%S; }
+
+# backed-Open BashRC(~/.bashrc) file
+openbrc() {
+    local bak_file="$HOME/.bashrc.$(_brc_date).bak"
+    cp "$HOME/.bashrc" "$bak_file"
+    vi "$HOME/.bashrc"
+    diff "$HOME/.bashrc" "$bak_file" && rm "$bak_file"
+}
 
 # Change Directory End With
 cdew() {
@@ -10,6 +19,15 @@ cdew() {
     [ -z "$found_dir" ] && echo "Directory not found..." && return 1
 
     cd "$found_dir"
+}
+
+# X-selected cat
+xcat() {
+    local fpath="$1"
+    [[ ! -f $fpath ]] && echo "File not found: $fpath" && return 1
+    local fsize=$(stat -c%s "$fpath" 2>/dev/null || echo "0")
+    (( fsize == 0 || fsize > 4096 )) && echo "Exessive file size: $fsize" && return 1
+    cat "$fpath" | xsel -b
 }
 
 alias_safe() {
