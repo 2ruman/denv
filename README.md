@@ -3,5 +3,5 @@
 
 ### One-liner
 ```bash
-cd ~; ([ -e dev-env/ ] && echo 'Check the ex-dev-env') || (git clone https://github.com/2ruman/dev-env.git; cd dev-env/; ./init.sh)
+cd ~; sudo apt install -y git; [ -e denv/ ] && echo 'Check the ex-denv left' || git clone https://github.com/2ruman/denv.git && cd denv/ && ./init.sh;
 ```
