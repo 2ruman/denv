@@ -3,8 +3,9 @@
 _brc_log() { echo -e "[\033[0;32mBASHRC\033[0m] ${*}"; }
 
 alias_safe() {
-    local ali="$1"
-    local cmd="$2"
+    local ali_cmd="$1"
+    local ali=${ali_cmd%%=*}
+    local cmd=${ali_cmd#*=}
 
     if type "$ali" &>/dev/null ; then
         #echo "$ali" is already used: $(type "$ali" | sed -e 's/^"$ali" is //')

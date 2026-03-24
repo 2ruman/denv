@@ -1,2 +1,2 @@
-alias_safe openbrc "vi ~/.bashrc"
-alias_safe srcbrc "source ~/.bashrc"
+alias openbrc="vi ~/.bashrc"
+alias srcbrc="source ~/.bashrc"
