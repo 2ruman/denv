@@ -1,0 +1,55 @@
+#!/bin/bash
+
+set -e
+
+cp ./bashrc.func ./test.tmp
+
+trap 'rm -f ./test.tmp' EXIT
+
+cat << EOF >> test.tmp
+
+_oneline_func ( )   { echo "I'm oneline_func"; }
+
+aaa() {
+    echo "I'm aaa..."
+}
+
+function bbb() {
+    echo "I'm bbb..."
+}
+
+ function _ccc() {
+    echo "I'm ccc..."
+}
+
+ aaab  () {
+     echo "I'm aaab..."
+}
+
+  function  _d_d_d__ (   ) {
+      echo "I'm _d_d_d..."
+}
+
+_() {
+    echo "I'm _..."
+}
+
+eee( ) {
+    echo "I'm eee..."
+}
+
+EOF
+
+source ./test.tmp
+
+aaa
+
+unset_brc_funcs
+
+set +e
+
+unset_brc_funcs
+
+aaa
+
+#rm ./test.tmp
