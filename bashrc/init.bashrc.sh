@@ -18,6 +18,7 @@ ${STX}--------------------------------------------------------------------
 
 source /${U}/denv/bashrc/init.rc
 source /${U}/denv/bashrc/bashrc.alias
+source /${U}/denv/bashrc/bashrc.func
 
 ${ETX}--------------------------------------------------------------------
 EOF

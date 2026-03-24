@@ -2,6 +2,16 @@
 
 _brc_log() { echo -e "[\033[0;32mBASHRC\033[0m] ${*}"; }
 
+# Change Directory End With
+cdew() {
+    [ -z "$1" ] && echo "No argument..." && return 1
+
+    local found_dir=$(find . -maxdepth 1 -type d -name "*${1}" -print -quit)
+    [ -z "$found_dir" ] && echo "Directory not found..." && return 1
+
+    cd "$found_dir"
+}
+
 alias_safe() {
     local ali_cmd="$1"
     local ali=${ali_cmd%%=*}
