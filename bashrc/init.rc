@@ -13,6 +13,7 @@ export MY_TOOLING=$MY_WORLD/tooling
 export MY_TOOLS=$MY_WORLD/tools
 export MY_WORKSPACE=$MY_WORLD/workspace
 
+alias truman="cd $MY_WORLD"
 
 PATH=\
 $MY_WORLD/bin:\
