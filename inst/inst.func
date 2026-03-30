@@ -1,0 +1,37 @@
+#!/bin/bash
+
+BLK='\033[0;30m'    # Black
+RED='\033[0;31m'    # Red
+GRN='\033[0;32m'    # Green
+YLW='\033[0;33m'    # Yellow
+BLU='\033[0;34m'    # Blue
+PUP='\033[0;35m'    # Purple
+WHT='\033[0;37m'    # White
+NOC='\033[0m'       # No Color(=Reset)
+
+log_step() { echo -e " ${GRN}\U2192${NOC} ${*}"; }
+log_over() { echo -e " ${PUP}\U2607${NOC} ${*}"; }
+log_mark() { echo -e " ${GRN}\U2713${NOC} ${*}"; }
+log_erro() { echo -e " ${RED}\U0021${NOC} ${*}"; }
+exit_err() { log_erro "$*" >&2; exit 1; }
+exit_of() {
+    local cmd="${*}"
+    local res=
+    res=$($cmd 2>&1) || exit_err "Failed: $res"
+}
+
+ask_cnfm() {
+    log_over "Are you sure you want to proceed?\n"
+    pause_to_cont
+}
+
+pause_to_cont() {
+    while true; do
+        read -n 1 -r -s -p "Press [Enter] to continue / [Esc] to terminate... " ans
+        case $ans in
+            "") echo; return 0 ;;
+            $'\e') echo; exit 1 ;;
+            *) echo ;;
+        esac
+    done
+}
