@@ -12,6 +12,10 @@ export ANDROID_NDK=$(ls -d $ANDROID_SDK/ndk/* | tail -n 1)
 export ANDROID_NDK_TOOLCHAINS=$ANDROID_NDK/toolchains/llvm/prebuilt/linux-x86_64
 export ANDROID_SDK_BUILD_TOOLS=$(ls -d $ANDROID_SDK/build-tools/* | sort -r | head -n 1)
 
+alias ike="adb input keyevent"
+alias it="adb shell inut text"
+alias logt="adb shell logcat -v uid"
+
 PATH=\
 $MY_TOOLS/bin:\
 $ANDROID_NDK:\
