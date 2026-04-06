@@ -1,0 +1,23 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Monokai Dimmed",
+    "files.autoSave": "onFocusChange",
+    "editor.rulers": [100],
+    "editor.renderWhitespace": "all",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        // "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit",
+        },
+    },
+    "isort.args":["--profile", "black"],
+    "flake8.args": [
+        "--max-line-length=100"
+    ],
+    "terminal.integrated.sendKeybindingsToShell": false,
+    "terminal.integrated.allowChords": false,
+    "terminal.integrated.altClickMovesCursor": false,
+    "chat.viewSessions.orientation": "stacked",
+    "files.trimTrailingWhitespace": true,
+}
