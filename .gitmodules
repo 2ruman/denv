@@ -1,0 +1,3 @@
+[submodule "imported/zsh"]
+	path = imported/zsh
+	url = https://github.com/2ruman/zsh.git
